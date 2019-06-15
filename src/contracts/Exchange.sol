@@ -10,7 +10,7 @@ contract Exchange {
     address public feeAccount; // the account that receives exchange fees
     uint256 public feePercent; // the fee percentage
     address constant ETHER = address(0); // store Ether in tokens mapping with blank address
-    mapping(address => mapping(address => uint256)) public tokens;
+    mapping(address => mapping(address => uint256)) public tokens; // Token/Ether Address -> User Address -> Token/Ether Balance
     mapping(uint256 => _Order) public orders;
     uint256 public orderCount;
     mapping(uint256 => bool) public orderCancelled;
@@ -131,7 +131,7 @@ contract Exchange {
         tokens[_tokenGet][_user] = tokens[_tokenGet][_user].add(_amountGet);
         tokens[_tokenGet][feeAccount] = tokens[_tokenGet][feeAccount].add(_feeAmount);
         tokens[_tokenGive][_user] = tokens[_tokenGive][_user].sub(_amountGive);
-        tokens[_tokenGive][msg.sender] = tokens[_tokenGive][msg.sender].add(_amountGet);
+        tokens[_tokenGive][msg.sender] = tokens[_tokenGive][msg.sender].add(_amountGive);
 
         emit Trade(_orderId, _user, _tokenGet, _amountGet, _tokenGive, _amountGive, msg.sender, now);
     }
