@@ -25,4 +25,8 @@ Other - </br>
 *Optional* </br>
 - Load up your scripts, which-are premade orders of the exchange -> 'truffle exec scripts/seed-exchange.js' </br>
 
+<p></p>
+You can check out the live preview of this project here -> https://dexifi-exchange.herokuapp.com/
+<br> (Must have Metamask connected to Kovan for the application to load)
+
 
