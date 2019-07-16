@@ -2,12 +2,13 @@ Getting started
 
 Make sure you have the following dependencies downloaded to ensure everything works properly without any issues
 
+Global dependencies - 
 •	Node @9.10.0
 •	Python @2.7.7
 •	Truffle @5.0.5
 •	Node-gyp @3.6.2
 
-Other
+Other -
 •	Ganache
 •	Metamask Exntesion for Google Chrome
 •	Redux devtools extension
