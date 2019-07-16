@@ -10,7 +10,7 @@ Global dependencies -
 
 Other -
 •	Ganache
-•	Metamask Exntesion for Google Chrome
+•	Metamask Extension for Google Chrome
 •	Redux devtools extension
 
 1. Start by cloning this repo
