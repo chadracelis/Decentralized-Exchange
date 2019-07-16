@@ -22,6 +22,6 @@ Other -
 7. 'npm start' to load up the new exchange on your local browser
 
 *Optional*
--Load up your scripts, which-are premade orders of the exchange -> 'truffle exec scripts/seed-exchange.js'
+- Load up your scripts, which-are premade orders of the exchange -> 'truffle exec scripts/seed-exchange.js'
 
 
