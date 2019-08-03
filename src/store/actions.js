@@ -67,7 +67,7 @@ export function orderCancelled(order) {
 // Fill Order
 export function orderFilling() {
   return {
-    type: 'ORDER_FILLING'
+    type: 'ORDER_FILLING',
   }
 }
 
@@ -109,7 +109,7 @@ export function exchangeTokenBalanceLoaded(balance) {
 
 export function balancesLoaded() {
   return {
-    type: 'BALANCES_LOADED'
+    type: 'BALANCES_LOADED',
   }
 }
 
@@ -119,6 +119,7 @@ export function balancesLoading() {
   }
 }
 
+// Deposits and Withdraws
 export function etherDepositAmountChanged(amount) {
   return {
     type: 'ETHER_DEPOSIT_AMOUNT_CHANGED',
@@ -196,3 +197,4 @@ export function sellOrderMaking(price) {
     type: 'SELL_ORDER_MAKING'
   }
 }
+
