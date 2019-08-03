@@ -7,7 +7,7 @@ import {
   depositEther,
   depositToken,
   withdrawEther,
-  withdrawToken
+  withdrawToken,
 } from '../store/interactions'
 import {
   exchangeSelector,
@@ -30,6 +30,8 @@ import {
   tokenDepositAmountChanged,
   tokenWithdrawAmountChanged,
 } from '../store/actions'
+
+
 const showForm = (props) => {
   const {
     dispatch,
@@ -48,10 +50,10 @@ const showForm = (props) => {
   } = props
 
   return(
-    <Tabs defaultActiveKey="deposit" className="bg-dark text-white">
+    <Tabs defaultActiveKey="deposit" className="text-white">
 
-      <Tab eventKey="deposit" title="Deposit" className="bg-dark">
-        <table className="table table-dark table-sm small">
+      <Tab eventKey="deposit" title="Deposit">
+        <table className="table table-dark table-sm balance-table-custom">
           <thead>
             <tr>
               <th>Token</th>
@@ -77,18 +79,18 @@ const showForm = (props) => {
             type="text"
             placeholder="ETH Amount"
             onChange={(e) => dispatch( etherDepositAmountChanged(e.target.value) ) }
-            className="form-control form-control-sm bg-dark text-white"
+            className="form-control form-control-sm text-white input-custom"
             required />
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
-            <button type="submit" className="btn btn-primary btn-block btn-sm">Deposit</button>
+            <button type="submit" className="btn btn-block btn-sm text-white button-custom">Deposit</button>
           </div>
         </form>
 
-        <table className="table table-dark table-sm small">
+        <table className="table table-dark table-sm balance-table-custom">
           <tbody>
             <tr>
-              <td>DeFi</td>
+              <td>DEFI</td>
               <td>{tokenBalance}</td>
               <td>{exchangeTokenBalance}</td>
             </tr>
@@ -102,21 +104,19 @@ const showForm = (props) => {
           <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
-            placeholder="DeFi Amount"
+            placeholder="DEFI Amount"
             onChange={(e) => dispatch( tokenDepositAmountChanged(e.target.value) )}
-            className="form-control form-control-sm bg-dark text-white"
+            className="form-control form-control-sm text-white input-custom"
             required />
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
-            <button type="submit" className="btn btn-primary btn-block btn-sm">Deposit</button>
+            <button type="submit" className="btn btn-block btn-sm text-white button-custom">Deposit</button>
           </div>
         </form>
-
       </Tab>
 
-      <Tab eventKey="withdraw" title="Withdraw" className="bg-dark">
-
-        <table className="table table-dark table-sm small">
+      <Tab eventKey="withdraw" title="Withdraw">
+        <table className="table table-dark table-sm balance-table-custom">
           <thead>
             <tr>
               <th>Token</th>
@@ -142,18 +142,18 @@ const showForm = (props) => {
             type="text"
             placeholder="ETH Amount"
             onChange={(e) => dispatch( etherWithdrawAmountChanged(e.target.value) )}
-            className="form-control form-control-sm bg-dark text-white"
+            className="form-control form-control-sm text-white input-custom"
             required />
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
-            <button type="submit" className="btn btn-primary btn-block btn-sm">Withdraw</button>
+            <button type="submit" className="btn btn-block btn-sm text-white button-custom">Withdraw</button>
           </div>
         </form>
 
-        <table className="table table-dark table-sm small">
+        <table className="table table-dark table-sm balance-table-custom">
           <tbody>
             <tr>
-              <td>DeFi</td>
+              <td>DEFI</td>
               <td>{tokenBalance}</td>
               <td>{exchangeTokenBalance}</td>
             </tr>
@@ -167,17 +167,17 @@ const showForm = (props) => {
           <div className="col-12 col-sm pr-sm-2">
             <input
             type="text"
-            placeholder="DeFi Amount"
+            placeholder="DEFI Amount"
             onChange={(e) => dispatch( tokenWithdrawAmountChanged(e.target.value) )}
-            className="form-control form-control-sm bg-dark text-white"
+            className="form-control form-control-sm text-white input-custom"
             required />
           </div>
           <div className="col-12 col-sm-auto pl-sm-0">
-            <button type="submit" className="btn btn-primary btn-block btn-sm">Withdraw</button>
+            <button type="submit" className="btn btn-block btn-sm text-white button-custom">Withdraw</button>
           </div>
         </form>
-
       </Tab>
+      
     </Tabs>
   )
 }
@@ -194,11 +194,11 @@ class Balance extends Component {
 
   render() {
     return (
-      <div className="card bg-dark text-white">
-        <div className="card-header">
-          Balance
+      <div className="card bg-dark text-white card-custom">
+        <div className="card-header card-header-custom">
+          <h4 className="h4-custom">&nbsp; Balance</h4>
         </div>
-        <div className="card-body">
+        <div className="card-body card-body-custom">
           {this.props.showForm ? showForm(this.props) : <Spinner />}
         </div>
       </div>
