@@ -1,28 +1,32 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import { accountSelector } from '../store/selectors'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { accountSelector } from '../store/selectors';
 
-class Navbar extends Component {
+export class Navbar extends Component {
   render() {
+    const { account } = this.props;
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
-        <a className="navbar-brand" href="#/">DexiFi Exchange</a>
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span className="navbar-toggler-icon"></span>
-        </button>
-        <ul className="navbar-nav ml-auto">
-          <li className="nav-item">
-            <a
-              className="nav-link small"
-              href={`https://etherscan.io/address/${this.props.account}`}
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              {this.props.account}
-            </a>
-          </li>
-        </ul>
-      </nav>
+      <div>
+        <nav className="navbar navbar-expand-lg navbar-dark navbar-custom">
+          <a className="navbar-brand" href="/#"><strong>DexiFi</strong></a>
+          <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+            <span className="navbar-toggler-icon"></span>
+          </button>
+          <ul className="navbar-nav ml-auto">
+            <h4 className="nav-address">Account:</h4>
+            <li className="nav-item">
+              <a
+                className="nav-link nav-link-custom"
+                href={`https://etherscan.io/address/${account}`}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+               <strong>{account}</strong>
+              </a>
+            </li>
+          </ul>
+        </nav>
+      </div>
     )
   }
 }
@@ -33,4 +37,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(mapStateToProps)(Navbar)
+export default connect(mapStateToProps)(Navbar);
