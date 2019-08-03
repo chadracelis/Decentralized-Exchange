@@ -35,92 +35,88 @@ const showForm = (props) => {
   } = props
 
   return(
-    <Tabs defaultActiveKey="buy" className="bg-dark text-white">
+    <Tabs defaultActiveKey="buy" className="text-white">
 
-      <Tab eventKey="buy" title="Buy" className="bg-dark">
-
+      <Tab eventKey="buy" title="Buy">
           <form onSubmit={(event) => {
             event.preventDefault()
             makeBuyOrder(dispatch, exchange, token, web3, buyOrder, account)
           }}>
-          <div className="form-group small">
-            <label>Buy Amount (DeFi)</label>
+          <div className="form-group">
+            <label>Amount (DEFI)</label>
             <div className="input-group">
               <input
                 type="text"
-                className="form-control form-control-sm bg-dark text-white"
+                className="form-control form-control-sm text-white input-custom"
                 placeholder="Buy Amount"
                 onChange={(e) => dispatch( buyOrderAmountChanged( e.target.value ) )}
                 required
               />
             </div>
           </div>
-          <div className="form-group small">
-            <label>Buy Price</label>
+          <div className="form-group">
+            <label>Price</label>
             <div className="input-group">
               <input
                 type="text"
-                className="form-control form-control-sm bg-dark text-white"
+                className="form-control form-control-sm text-white input-custom"
                 placeholder="Buy Price"
                 onChange={(e) => dispatch( buyOrderPriceChanged( e.target.value ) )}
                 required
               />
             </div>
           </div>
-          <button type="submit" className="btn btn-primary btn-sm btn-block">Buy Order</button>
+          <button type="submit" className="btn btn-block btn-sm text-white button-custom">Buy Order</button>
           { showBuyTotal ? <small>Total: {buyOrder.amount * buyOrder.price} ETH</small> : null }
         </form>
-
       </Tab>
 
-      <Tab eventKey="sell" title="Sell" className="bg-dark">
-
+      <Tab eventKey="sell" title="Sell">
         <form onSubmit={(event) => {
           event.preventDefault()
           makeSellOrder(dispatch, exchange, token, web3, sellOrder, account)
         }}>
-        <div className="form-group small">
-          <label>Buy Sell (DeFi)</label>
+        <div className="form-group">
+          <label>Amount (DEFI)</label>
           <div className="input-group">
             <input
               type="text"
-              className="form-control form-control-sm bg-dark text-white"
-              placeholder="Sell amount"
+              className="form-control form-control-sm text-white input-custom"
+              placeholder="Sell Amount"
               onChange={(e) => dispatch( sellOrderAmountChanged( e.target.value ) )}
               required
             />
           </div>
         </div>
-        <div className="form-group small">
-          <label>Sell Price</label>
+        <div className="form-group">
+          <label>Price</label>
           <div className="input-group">
             <input
               type="text"
-              className="form-control form-control-sm bg-dark text-white"
+              className="form-control form-control-sm text-white input-custom"
               placeholder="Sell Price"
               onChange={(e) => dispatch( sellOrderPriceChanged( e.target.value ) )}
               required
             />
           </div>
         </div>
-        <button type="submit" className="btn btn-primary btn-sm btn-block">Sell Order</button>
+        <button type="submit" className="btn btn-block btn-sm text-white button-custom">Sell Order</button>
         { showSellTotal ? <small>Total: {sellOrder.amount * sellOrder.price} ETH</small> : null }
       </form>
-
       </Tab>
+      
     </Tabs>
   )
 }
 
 class NewOrder extends Component {
-
   render() {
     return (
-      <div className="card bg-dark text-white">
-        <div className="card-header">
-          New Order
+      <div className="card bg-dark text-white card-custom">
+        <div className="card-header card-header-custom">
+          <h4 className="h4-custom">&nbsp; Create Order</h4>
         </div>
-        <div className="card-body">
+        <div className="card-body card-body-custom">
           {this.props.showForm ? showForm(this.props) : <Spinner />}
         </div>
       </div>
@@ -146,3 +142,4 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps)(NewOrder)
+
