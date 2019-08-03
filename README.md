@@ -30,4 +30,5 @@ Other - </br>
 You can check out the live preview of this project here -> https://dexifi-exchange.herokuapp.com/
 <br> (Must have Metamask connected to Kovan for the application to load)
 
+<img src="./portfolio.png" alt="Project">
 
