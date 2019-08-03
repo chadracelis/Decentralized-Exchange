@@ -7,11 +7,12 @@ import {
   myFilledOrdersSelector,
   myOpenOrdersLoadedSelector,
   myOpenOrdersSelector,
+  orderCancellingSelector,
   exchangeSelector,
   accountSelector,
-  orderCancellingSelector
 } from '../store/selectors'
-import { cancelOrder } from '../store/interactions'
+import { cancelOrder } from '../store/interactions';
+
 
 const showMyFilledOrders = (props) => {
   const { myFilledOrders } = props
@@ -19,37 +20,38 @@ const showMyFilledOrders = (props) => {
   return(
     <tbody>
       { myFilledOrders.map((order) => {
-        return (
+        return(
           <tr key={order.id}>
             <td className="text-muted">{order.formattedTimestamp}</td>
             <td className={`text-${order.orderTypeClass}`}>{order.orderSign}{order.tokenAmount}</td>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
           </tr>
         )
-      }) }
+      })}
     </tbody>
   )
 }
 
 const showMyOpenOrders = (props) => {
-  const { myOpenOrders, dispatch, exchange, account } = props
+  const { myOpenOrders, dispatch, exchange, account} = props
 
   return(
     <tbody>
       { myOpenOrders.map((order) => {
-        return (
+        return(
           <tr key={order.id}>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenAmount}</td>
             <td className={`text-${order.orderTypeClass}`}>{order.tokenPrice}</td>
-            <td
+            <td 
               className="text-muted cancel-order"
               onClick={(e) => {
                 cancelOrder(dispatch, exchange, order, account)
               }}
-            >X</td>
+            >X
+            </td>
           </tr>
         )
-      }) }
+      })}
     </tbody>
   )
 }
@@ -57,30 +59,30 @@ const showMyOpenOrders = (props) => {
 class MyTransactions extends Component {
   render() {
     return (
-      <div className="card bg-dark text-white">
-        <div className="card-header">
-          My Transactions
+      <div className="card bg-dark text-white card-custom">
+        <div className="card-header card-header-custom">
+          <h4 className="h4-custom">&nbsp; My Transactions</h4>
         </div>
-        <div className="card-body">
-          <Tabs defaultActiveKey="trades" className="bg-dark text-white">
+        <div className="card-body card-body-custom">
+          <Tabs defaultActiveKey="trades" className="text-white">
             <Tab eventKey="trades" title="Trades" className="bg-dark">
-              <table className="table table-dark table-sm small">
+              <table className="table table-dark table-custom">
                 <thead>
                   <tr>
                     <th>Time</th>
-                    <th>DeFi</th>
-                    <th>DeFi/ETH</th>
+                    <th>DEFI</th>
+                    <th>DEFI/ETH</th>
                   </tr>
                 </thead>
                 { this.props.showMyFilledOrders ? showMyFilledOrders(this.props) : <Spinner type="table" />}
               </table>
             </Tab>
             <Tab eventKey="orders" title="Orders">
-              <table className="table table-dark table-sm small">
+              <table className="table table-dark table-custom">
                 <thead>
                   <tr>
                     <th>Amount</th>
-                    <th>DeFi/ETH</th>
+                    <th>DEFI/ETH</th>
                     <th>Cancel</th>
                   </tr>
                 </thead>
@@ -107,13 +109,7 @@ function mapStateToProps(state) {
     account: accountSelector(state)
   }
 }
-
-export default connect(mapStateToProps)(MyTransactions);
-
-
-
-
-
+export default connect(mapStateToProps)(MyTransactions)
 
 
 
