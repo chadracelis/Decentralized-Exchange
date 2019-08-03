@@ -1,12 +1,12 @@
 export const chartOptions = {
   chart: {
-    animations: { enabled: false },
-    toolbar: { show: false },
+    animations: { enabled: true },
+    toolbar: { show: true },
     width: '100px'
   },
   tooltip: {
     enabled: true,
-    theme: false,
+    theme: true,
     style: {
       fontSize: '12px',
       fontFamily: undefined
@@ -307,3 +307,4 @@ export const dummyData = [
     ]
   }
 ]
+
