@@ -212,7 +212,17 @@ tr.order-book-order {
 }
 
 .button-custom {
+  background-color: rgb(28, 154, 168) !important;
+  font-weight: bold;
+}
+
+.button-buy {
   background-color: #45b341 !important;
+  font-weight: bold;
+}
+
+.button-sell {
+  background-color: rgb(172, 25, 25) !important;
   font-weight: bold;
 }
 
