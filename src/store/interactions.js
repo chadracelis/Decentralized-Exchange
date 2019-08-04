@@ -126,9 +126,6 @@ export const loadBalances = async (dispatch, web3, exchange, token, account) => 
   dispatch(balancesLoaded())
 }
 
-/* NOTES TO SELF */
-// Dispatch is a function that gets called into the reducer to handle the action
-
 export const depositEther = (dispatch, exchange, web3, amount, account) => {
   exchange.methods.depositEther.send({ from: account, value: web3.utils.toWei(amount, 'ether') })
   .on('transactionHash', (hash) => {
