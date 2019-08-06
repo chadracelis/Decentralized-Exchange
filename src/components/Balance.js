@@ -25,6 +25,7 @@ import {
   tokenWithdrawAmountSelector,
 } from '../store/selectors'
 import {
+  // Track state of input amount and declare it when submitted 
   etherDepositAmountChanged,
   etherWithdrawAmountChanged,
   tokenDepositAmountChanged,
