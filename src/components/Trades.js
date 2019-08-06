@@ -25,7 +25,6 @@ const showFilledOrders = (filledOrders) => {
 
 class Trades extends Component {
   render() {
-    console.log('yessssss:', this.props.filledOrders)
     return (
       <div className="vertical">
         <div className="card bg-dark text-white card-custom">
