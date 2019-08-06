@@ -11,6 +11,7 @@ import {
   sellOrderSelector
 } from '../store/selectors'
 import {
+  // track state of input so we can declare it when submitted
   buyOrderAmountChanged,
   buyOrderPriceChanged,
   sellOrderAmountChanged,
