@@ -31,7 +31,7 @@ module.exports = async function(callback) {
 
     // Give tokens to account[1]
     const sender = accounts[0]
-    const receiver = accounts[1]
+    const receiver = accounts[2]
     let amount = web3.utils.toWei('10000', 'ether') // 10,000 tokens
 
     await token.transfer(receiver, amount, { from: sender })
@@ -39,7 +39,7 @@ module.exports = async function(callback) {
 
     // Set up exchange users
     const user1 = accounts[0]
-    const user2 = accounts[1]
+    const user2 = accounts[2]
 
     // User 1 Deposits Ether
     amount = 1
