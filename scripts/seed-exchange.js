@@ -16,11 +16,17 @@ const wait = (seconds) => {
   return new Promise(resolve => setTimeout(resolve, milliseconds))
 }
 
-module.exports = async function(callback) {
+module.exports = async function (callback) {
   try {
     // Fetch accounts from wallet - these are unlocked
     const accounts = await web3.eth.getAccounts()
 
+    await web3.eth.sendTransaction({
+      from: accounts[0],
+      to: accounts[2],
+      value: '10000000000000000000'
+    })
+    
     // Fetch the deployed token
     const token = await Token.deployed()
     console.log('Token fetched', token.address)
@@ -45,6 +51,8 @@ module.exports = async function(callback) {
     amount = 1
     await exchange.depositEther({ from: user1, value: ether(amount) })
     console.log(`Deposited ${amount} Ether from ${user1}`)
+
+    await wait(3)
 
     // User 2 Approves Tokens
     amount = 10000
@@ -131,7 +139,7 @@ module.exports = async function(callback) {
     }
 
   }
-  catch(error) {
+  catch (error) {
     console.log(error)
   }
 
