@@ -1,4 +1,5 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: SimPL-2.0
+pragma solidity >=0.7.4 <0.8.0;
 
 /**
  * @title SafeMath
