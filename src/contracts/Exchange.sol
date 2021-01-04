@@ -71,7 +71,7 @@ contract Exchange {
     }
 
     // Fallback: reverts if Ether is sent to this smart contract by mistake
-    fallback() external payable{
+    fallback() external{
         revert();
     }
 
@@ -234,7 +234,7 @@ contract Exchange {
 
         _Order storage _order = orders[_id];
 
-        // require(count < _order.amountGet,'Can not split order by count');
+        require(count < _order.amountGet,'Can not split order by count');
         if (!bs_type) {
             uint256 price = _order.amountGive.mul(decimals).div(_order.amountGet);
             _order.amountGet = _order.amountGet - count;
@@ -310,8 +310,8 @@ contract Exchange {
         uint256 _amountGive)
         internal {
             // Fee paid by the user that fills the order 
-            // uint256 _feeAmount = _amountGive.mul(feePercent).div(100);
-            uint256 _feeAmount = 0;
+            uint256 _feeAmount = _amountGive.mul(feePercent).div(100);
+            // uint256 _feeAmount = 0;
             tokens[_tokenGet][msg.sender] = tokens[_tokenGet][msg.sender].sub(_amountGet.add(_feeAmount));
             tokens[_tokenGet][_user] = tokens[_tokenGet][_user].add(_amountGet);
             tokens[_tokenGet][feeAccount] = tokens[_tokenGet][feeAccount].add(_feeAmount);
