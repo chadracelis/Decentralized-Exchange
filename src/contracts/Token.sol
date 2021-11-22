@@ -1,6 +1,7 @@
-pragma solidity ^0.5.0;
+// SPDX-License-Identifier: SimPL-2.0
+pragma solidity >=0.4.21 <0.8.0;
 
-import "openzeppelin-solidity/contracts/math/SafeMath.sol";
+import "./SafeMath.sol";
 
 contract Token {
 
@@ -18,7 +19,7 @@ contract Token {
     event Transfer(address indexed from, address indexed to, uint256 value);
     event Approval(address indexed owner, address indexed spender, uint256 value);
 
-    constructor() public {
+    constructor() {
         totalSupply = 1000000 * (10 ** decimals);
         balanceOf[msg.sender] = totalSupply;
     }
